@@ -1,0 +1,22 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/migrate/**/*'
+    - 'db/schema.rb'
+    - 'lib/**/*'
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+  Style/FrozenStringLiteralComment:
+    Enabled: false
+  Style/Documentation:
+    Enabled: false
+  Metrics/MethodLength:
+    Max: 15
+  Metrics/AbcSize:
+    Max: 20
+  Layout/LineLength:
+    Max: 120
+  Metrics/BlockLength:
+    Exclude:
+      - 'spec/**/*'
