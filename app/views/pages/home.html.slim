@@ -1,2 +1,33 @@
-h1 Pages#home
-p Find me in app/views/pages/home.html.slim
+.my-5
+  h1 Le Wagon Japan Salaries
+  p.subtitle How much does a fresh grad from Le Wagon Japan coding bootcamp make in their first job?
+p This website is meant to help new Le Wagon Japan grads get a sense of their worth.
+  How much can you realistically expect to get for a role in Japan right after graduating?
+  Thanks to alumni from previous batches you will find the answer to that question in the list below.
+p If you are an alumni we encourage you to #{link_to 'anonymously share your first salary', new_salary_path}.
+
+h3.mt-4 Salaries
+p Median salary: ¥#{number_with_delimiter(@median)}
+p Average salary: ¥#{number_with_delimiter(@average)}
+table.table
+  thead
+    tr
+      th scope="col" Graduation Date
+      th scope="col" Yearly Salary
+      th scope="col" Job Title
+      th scope="col" Remote work?
+      th scope="col" Flexible hours?
+      th scope="col" Equity?
+      th scope="col" Work Week
+      th scope="col" Overtime
+  tbody
+    - @salaries.each do |salary|
+      tr
+        th = salary.graduation.strftime("%y/%m")
+        th ¥#{number_with_delimiter(salary.amount)}
+        th = salary.role_name
+        th.text-center = true_false_display(Salary.remotes[salary.remote])
+        th.text-center = true_false_display(Salary.flexes[salary.flex])
+        th.text-center = true_false_display(salary.equity)
+        th.text-center = salary.workweek
+        th.text-center = salary.overtime
