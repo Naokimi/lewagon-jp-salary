@@ -12,11 +12,10 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true
 
   body
-    = render 'shared/navbar'
+    // add flexbox to push footer down
     = render 'shared/flashes'
 
     .container
       = yield
 
     = render 'shared/footer'
-

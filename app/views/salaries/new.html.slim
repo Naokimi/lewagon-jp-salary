@@ -1,0 +1,14 @@
+h1 Salaries#new
+p Find me in app/views/salaries/new.html.slim
+
+= simple_form_for @salary do |f|
+  = f.input :amount
+  = f.input :graduation
+  // allow blank: false
+  = f.input :role_name, collection: Salary::ROLES
+  = f.input :remote
+  = f.input :flex
+  = f.input :equity
+  = f.input :workweek
+  = f.input :overtime
+  = f.submit
