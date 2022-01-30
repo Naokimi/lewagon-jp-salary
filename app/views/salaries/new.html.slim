@@ -1,14 +1,17 @@
-h1 Salaries#new
-p Find me in app/views/salaries/new.html.slim
-
+h1.my-3 Add a new salary
 = simple_form_for @salary do |f|
-  = f.input :amount
-  = f.input :graduation
-  // allow blank: false
-  = f.input :role_name, collection: Salary::ROLES
-  = f.input :remote
-  = f.input :flex
-  = f.input :equity
-  = f.input :workweek
-  = f.input :overtime
-  = f.submit
+  .row
+    .col-12.col-md = f.input :amount, label: 'Yearly salary'
+    .col-12.col-md = f.input :graduation, as: :date, discard_day: true, label: 'Graduation date'
+    .col-12.col-md = f.input :role_name, collection: Salary::ROLES, include_blank: false
+  .mt-3
+    h3 Help us make the analysis more precise
+    p These replies are optional, but they help give more context to a number
+  .row
+    .col-12.col-md = f.input :remote, label: 'Remote work'
+    .col-12.col-md = f.input :flex, label: 'Flex time'
+    .col-12.col-md = f.input :equity, label: 'Stock options or equity', boolean_style: :nested, as: :radio_buttons
+  .row
+    .col-12.col-md = f.input :workweek, label: 'Work week hours'
+    .col-12.col-md = f.input :overtime, label: 'Monthly included overtime (in hours)'
+  = f.submit 'Add salary'
