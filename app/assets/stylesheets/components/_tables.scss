@@ -1,0 +1,78 @@
+// table style
+
+table 			      {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: $lw-white;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  *{
+    position: relative
+  }
+
+  td,th           {
+    padding-left: 8px
+  }
+
+  thead tr        {
+    height: 60px;
+    background: $lw-pink;
+    font-size: 16px;
+  }
+
+  tbody tr        {
+    height: 48px;
+    border-bottom: 1px solid $lw-grey;
+
+    &:last-child  { border: 0; }
+  }
+}
+
+
+@include media-breakpoint-down(md) {
+
+  table					              {
+    display: block;
+
+	  > *,tr,td,th              {
+      display: block
+    }
+
+    thead                     {
+      display: none
+    }
+    tbody tr                  {
+      height: auto;
+      padding: 8px 0;
+
+      td                      {
+        padding-left: 45%;
+        margin-bottom: 12px;
+
+        &:last-child          {
+          margin-bottom: 0
+        }
+        &:before              {
+          position: absolute;
+          font-weight: 400;
+          width: 40%;
+          left: 10px;
+          top: 0
+        }
+
+        &:nth-child(1):before { content: "Graduation Date";}
+        &:nth-child(2):before { content: "Yearly Salary";}
+        &:nth-child(3):before { content: "Job Title";}
+        &:nth-child(4):before { content: "Remote work?";}
+        &:nth-child(5):before { content: "Flexible hours?";}
+        &:nth-child(6):before { content: "Equity?";}
+        &:nth-child(7):before { content: "Work Week";}
+        &:nth-child(8):before { content: "Overtime";}
+      }
+    }
+  }
+}

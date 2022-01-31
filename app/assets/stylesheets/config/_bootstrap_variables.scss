@@ -6,12 +6,13 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg:                 $lw-white;
 $font-size-base: 1rem;
 
 // Colors
-$body-color: $gray;
-$primary:    $blue;
+$body-color: $lw-black;
+$primary:    $lw-red;
+$secondary:  $lw-blue;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;

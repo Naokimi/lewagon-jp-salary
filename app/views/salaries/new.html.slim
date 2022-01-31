@@ -14,5 +14,5 @@ h1.my-3 Add a new salary
   .row
     .col-12.col-md = f.input :workweek, label: 'Work week hours'
     .col-12.col-md = f.input :overtime, label: 'Monthly included overtime (in hours)'
-  = f.submit 'Add salary'
+  = f.submit 'Add salary', class: 'btn btn-primary text-white'
 .mt-5 = link_to 'Back to salary list', root_path
