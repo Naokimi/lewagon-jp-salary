@@ -6,7 +6,7 @@ class PagesController < ApplicationController
                   filtered_salaries
                 end
 
-    @salaries.order(:graduation)
+    @salaries.order(:year)
     math_variables
   end
 

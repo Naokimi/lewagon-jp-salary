@@ -15,6 +15,6 @@ class SalariesController < ApplicationController
   private
 
   def salary_params
-    params.require(:salary).permit(:amount, :equity, :flex, :graduation, :overtime, :remote, :role_name, :workweek)
+    params.require(:salary).permit(:amount, :equity, :flex, :year, :overtime, :remote, :job_title, :workweek)
   end
 end

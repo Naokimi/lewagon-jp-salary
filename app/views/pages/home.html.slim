@@ -4,7 +4,7 @@
 p This website is meant to help new Le Wagon Japan grads get a sense of their worth.
   How much can you realistically expect to get for a role in Japan right after graduating?
   Thanks to alumni from previous batches you will find the answer to that question in the list below.
-p If you are an alumni we encourage you to anonymously #{link_to 'share your first salary', new_salary_path, class: 'btn btn-primary text-white'}
+p If you are an alumni we encourage you to anonymously #{link_to 'add your first salary', new_salary_path, class: 'btn btn-primary text-white'}
 
 h3.mt-4 Salaries
 .d-flex.justify-content-between
@@ -13,7 +13,7 @@ h3.mt-4 Salaries
 table
   thead
     tr
-      th.fw-normal Graduation Date
+      th.fw-normal Year
       th.fw-normal Yearly Salary
       th.fw-normal Job Title
       th.fw-normal Remote work?
@@ -24,11 +24,11 @@ table
   tbody
     - @salaries.each do |salary|
       tr
-        td = salary.graduation.strftime("%y/%m")
+        td = salary.year
         td ¥#{number_with_delimiter(salary.amount)}
-        td = salary.role_name
-        td.text-center = true_false_display(Salary.remotes[salary.remote])
-        td.text-center = true_false_display(Salary.flexes[salary.flex])
-        td.text-center = true_false_display(salary.equity)
-        td.text-center = salary.workweek
-        td.text-center = salary.overtime
+        td = salary.job_title
+        td = true_false_display(Salary.remotes[salary.remote])
+        td = true_false_display(Salary.flexes[salary.flex])
+        td = true_false_display(salary.equity)
+        td = salary.workweek
+        td = salary.overtime

@@ -64,7 +64,7 @@ table 			      {
           top: 0
         }
 
-        &:nth-child(1):before { content: "Graduation Date";}
+        &:nth-child(1):before { content: "Year";}
         &:nth-child(2):before { content: "Yearly Salary";}
         &:nth-child(3):before { content: "Job Title";}
         &:nth-child(4):before { content: "Remote work?";}

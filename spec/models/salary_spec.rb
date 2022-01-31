@@ -6,11 +6,11 @@
 #  amount     :integer
 #  equity     :boolean          default(FALSE)
 #  flex       :integer
-#  graduation :datetime
+#  job_title  :string
 #  overtime   :integer
 #  remote     :integer
-#  role_name  :string
 #  workweek   :integer
+#  year       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

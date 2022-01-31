@@ -2,8 +2,8 @@ h1.my-3 Add a new salary
 = simple_form_for @salary do |f|
   .row
     .col-12.col-md = f.input :amount, label: 'Yearly salary'
-    .col-12.col-md = f.input :graduation, as: :date, discard_day: true, label: 'Graduation date'
-    .col-12.col-md = f.input :role_name, collection: Salary::ROLES, include_blank: false, label: 'Job title'
+    .col-12.col-md = f.input :year, label: 'Graduation year'
+    .col-12.col-md = f.input :job_title, collection: Salary::ROLES, include_blank: false
   .mt-3
     h3 Help us make the analysis more precise
     p These replies are optional, but they help give more context to a number
