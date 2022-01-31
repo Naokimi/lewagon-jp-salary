@@ -4,7 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  amount     :integer
-#  equity     :boolean          default(FALSE)
+#  equity     :boolean
 #  flex       :integer
 #  job_title  :string
 #  overtime   :integer

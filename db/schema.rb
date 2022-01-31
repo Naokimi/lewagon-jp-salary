@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2022_01_29_094109) do
     t.string "job_title"
     t.integer "remote"
     t.integer "flex"
-    t.boolean "equity", default: false
+    t.boolean "equity"
     t.integer "workweek"
     t.integer "overtime"
     t.datetime "created_at", precision: 6, null: false

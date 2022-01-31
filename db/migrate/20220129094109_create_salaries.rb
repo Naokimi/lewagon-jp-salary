@@ -6,7 +6,7 @@ class CreateSalaries < ActiveRecord::Migration[6.1]
       t.string :job_title
       t.integer :remote
       t.integer :flex
-      t.boolean :equity, default: false
+      t.boolean :equity
       t.integer :workweek
       t.integer :overtime
 
