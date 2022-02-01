@@ -30,5 +30,5 @@ table
         td = true_false_display(Salary.remotes[salary.remote])
         td = true_false_display(Salary.flexes[salary.flex])
         td = true_false_display(salary.equity)
-        td = salary.workweek
-        td = salary.overtime
+        td = salary.workweek ? "#{salary.workweek} h/week" : ''
+        td = salary.overtime ? "#{salary.overtime} h/month" : ''
