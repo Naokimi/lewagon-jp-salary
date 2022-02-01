@@ -10,3 +10,7 @@ body a {
   color: $secondary;
   text-decoration: none;
 }
+
+.container {
+  max-width: 992px !important;
+}
