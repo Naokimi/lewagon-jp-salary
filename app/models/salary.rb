@@ -20,8 +20,8 @@ class Salary < ApplicationRecord
     'Project Manager', 'QA Engineer', 'UI/UX Designer'
   ].freeze
 
-  enum remote: { fully_remote: 0, partial_remote: 1, none_or_limited_remote: 2 }
-  enum flex:   { full_flex: 0, with_core_time: 1, no_flexible_hours: 2 }
+  enum remote: { none_or_limited_remote: 0, partial_remote: 1, fully_remote: 2 }
+  enum flex:   { no_flexible_hours: 0, with_core_time: 1, full_flex: 2 }
 
   validates :amount, :year, :job_title, presence: true
   validates :year, numericality: { greater_than: 2016, less_than_or_equal_to: Time.zone.now.year }
