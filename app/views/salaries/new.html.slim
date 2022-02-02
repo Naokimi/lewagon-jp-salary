@@ -1,9 +1,9 @@
 h1.my-3 Add a new salary
 = simple_form_for @salary do |f|
   .row
-    .col-12.col-md = f.input :amount, label: 'Yearly salary'
+    .col-12.col-md = f.input :amount, label: 'Yearly salary', hint: 'Including bonuses and other monetizable benefits (conference budget, education budget, etc.)'
     .col-12.col-md = f.input :year, label: 'Graduation year'
-    .col-12.col-md = f.input :job_title, collection: Salary::ROLES, include_blank: false
+    .col-12.col-md = f.input :job_title, collection: Salary::ROLES, include_blank: false, selected: Salary::ROLES.sample
   .mt-3
     h3 Help us make the analysis more precise
     p These replies are optional, but they help give more context to a number
@@ -13,6 +13,6 @@ h1.my-3 Add a new salary
     .col-12.col-md = f.input :equity, label: 'Stock options or equity', boolean_style: :nested, as: :radio_buttons
   .row
     .col-12.col-md = f.input :workweek, label: 'Work week hours'
-    .col-12.col-md = f.input :overtime, label: 'Monthly included overtime (in hours)'
+    .col-12.col-md = f.input :overtime, label: 'Monthly included overtime (in hours)', hint: 'The amount of overtime hours that is not paid for. Input "0" if not applicable'
   = f.submit 'Add salary', class: 'btn btn-primary text-white'
 .mt-5 = link_to 'Back to salary list', root_path
