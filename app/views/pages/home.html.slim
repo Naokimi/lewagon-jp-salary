@@ -7,6 +7,8 @@ p This website is meant to help new Le Wagon Japan grads get a sense of their wo
 p If you are an alumni we encourage you to anonymously #{link_to 'add your first salary', new_salary_path, class: 'btn btn-primary text-white'}
 
 h3.mt-4 Salaries
+- if params[:query]
+  = link_to 'Clear query', root_path
 .d-flex.justify-content-between
   p.salary-card Median salary: ¥#{number_with_delimiter(@median)}
   p.salary-card Average salary: ¥#{number_with_delimiter(@average)}
@@ -24,11 +26,11 @@ table
   tbody
     - @salaries.each do |salary|
       tr
-        td = salary.year
+        td = link_to salary.year, root_path(query: { year: salary.year })
         td ¥#{number_with_delimiter(salary.amount)}
-        td = salary.job_title
-        td = true_false_display(Salary.remotes[salary.remote])
-        td = true_false_display(Salary.flexes[salary.flex])
-        td = true_false_display(salary.equity)
-        td = salary.workweek ? "#{salary.workweek} h/week" : ''
-        td = salary.overtime ? "#{salary.overtime} h/month" : ''
+        td = link_to salary.job_title, root_path(query: { job_title: salary.job_title })
+        td = salary.remote.nil? ? nil : link_to(true_false_display(Salary.remotes[salary.remote]), root_path(query: { remote: Salary.remotes[salary.remote] }))
+        td = salary.flex.nil? ? nil : link_to(true_false_display(Salary.flexes[salary.flex]), root_path(query: { flex: Salary.flexes[salary.flex] }))
+        td = salary.equity.nil? ? nil : link_to(true_false_display(salary.equity), root_path(query: { equity: salary.equity }))
+        td = salary.workweek.nil? ? nil : link_to("#{salary.workweek} h/week", root_path(query: { workweek: salary.workweek }))
+        td = salary.overtime.nil? ? nil : link_to("#{salary.overtime} h/week", root_path(query: { overtime: salary.overtime }))

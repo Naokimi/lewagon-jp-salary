@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @salaries = if params[:query].blank?
+    @salaries = if query_params.blank?
                   Salary.all
                 else
                   filtered_salaries
@@ -13,7 +13,9 @@ class PagesController < ApplicationController
   private
 
   def filtered_salaries
-    Salary.all
+    # turn query parameters into SQL string for querying
+    query = query_params.to_h[:query].map { |k, v| "#{k} = #{v}" }.join(' AND ')
+    Salary.where(query)
   end
 
   def math_variables
@@ -23,5 +25,9 @@ class PagesController < ApplicationController
     mid = (amounts.length - 1) / 2.0
     @median = (amounts[mid.floor] + amounts[mid.ceil]) / 2
     @average = amounts.sum(0) / amounts.length
+  end
+
+  def query_params
+    params.permit(query: %i[year job_title remote flex equity workweek overtime])
   end
 end
