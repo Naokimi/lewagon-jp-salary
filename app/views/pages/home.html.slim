@@ -7,6 +7,8 @@ p This website is meant to help new Le Wagon Japan grads get a sense of their wo
 p If you are an alumni we encourage you to anonymously #{link_to 'add your first salary', new_salary_path, class: 'btn btn-primary text-white'}
 
 h3.mt-4 Salaries
+- if params[:query]
+  = link_to 'Clear query', root_path
 .d-flex.justify-content-between
   p.salary-card Median salary: ¥#{number_with_delimiter(@median)}
   p.salary-card Average salary: ¥#{number_with_delimiter(@average)}
