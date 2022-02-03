@@ -12,25 +12,29 @@ h3.mt-4 Salaries
 .d-flex.justify-content-between
   p.salary-card Median salary: ¥#{number_with_delimiter(@median)}
   p.salary-card Average salary: ¥#{number_with_delimiter(@average)}
-table
-  thead
-    tr
-      th.fw-normal Year
-      th.fw-normal Yearly Salary
-      th.fw-normal Job Title
-      th.fw-normal Remote work?
-      th.fw-normal Flexible hours?
-      th.fw-normal Equity?
-      th.fw-normal Work Week
-      th.fw-normal Overtime
-  tbody
-    - @salaries.each do |salary|
+- if current_user
+  table
+    thead
       tr
-        td = link_to salary.year, root_path(query: { year: salary.year })
-        td ¥#{number_with_delimiter(salary.amount)}
-        td = link_to salary.job_title, root_path(query: { job_title: salary.job_title })
-        td = salary.remote.nil? ? nil : link_to(true_false_display(Salary.remotes[salary.remote]), root_path(query: { remote: Salary.remotes[salary.remote] }))
-        td = salary.flex.nil? ? nil : link_to(true_false_display(Salary.flexes[salary.flex]), root_path(query: { flex: Salary.flexes[salary.flex] }))
-        td = salary.equity.nil? ? nil : link_to(true_false_display(salary.equity), root_path(query: { equity: salary.equity }))
-        td = salary.workweek.nil? ? nil : link_to("#{salary.workweek} h/week", root_path(query: { workweek: salary.workweek }))
-        td = salary.overtime.nil? ? nil : link_to("#{salary.overtime} h/week", root_path(query: { overtime: salary.overtime }))
+        th.fw-normal Year
+        th.fw-normal Yearly Salary
+        th.fw-normal Job Title
+        th.fw-normal Remote work?
+        th.fw-normal Flexible hours?
+        th.fw-normal Equity?
+        th.fw-normal Work Week
+        th.fw-normal Overtime
+    tbody
+      - @salaries.each do |salary|
+        tr
+          td = link_to salary.year, root_path(query: { year: salary.year })
+          td ¥#{number_with_delimiter(salary.amount)}
+          td = link_to salary.job_title, root_path(query: { job_title: salary.job_title })
+          td = salary.remote.nil? ? nil : link_to(true_false_display(Salary.remotes[salary.remote]), root_path(query: { remote: Salary.remotes[salary.remote] }))
+          td = salary.flex.nil? ? nil : link_to(true_false_display(Salary.flexes[salary.flex]), root_path(query: { flex: Salary.flexes[salary.flex] }))
+          td = salary.equity.nil? ? nil : link_to(true_false_display(salary.equity), root_path(query: { equity: salary.equity }))
+          td = salary.workweek.nil? ? nil : link_to("#{salary.workweek} h/week", root_path(query: { workweek: salary.workweek }))
+          td = salary.overtime.nil? ? nil : link_to("#{salary.overtime} h/week", root_path(query: { overtime: salary.overtime }))
+- else
+  .text-center
+    = link_to 'Login to see detailed entries', new_user_session_path, class: 'btn btn-secondary'
