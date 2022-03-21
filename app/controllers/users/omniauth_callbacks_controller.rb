@@ -3,7 +3,7 @@
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def github
-      if github_user.persisted? && User::LW_JAPAN_USERS.include?(github_user.github_username)
+      if github_user.persisted? && ENV['LW_JAPAN_USERS'].split(',').include?(github_user.github_username)
         sign_in_and_redirect github_user, event: :authentication
         flash.notice = 'Successfully signed in with GitHub!'
       elsif github_user.persisted?
