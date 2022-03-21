@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :salaries, only: %i[new create]
   get '/salaries', to: redirect('salaries/new')
+  get '/faq', to: 'pages#faq'
 end
