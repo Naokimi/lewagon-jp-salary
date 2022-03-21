@@ -1,0 +1,30 @@
+.my-5
+  h1 Le Wagon Japan Salaries
+  h5 Salary FAQ
+p If you've landed on this page chances are you are thinking one of the two: "Why is there such a difference between displayed salaries?" or "Why is MY salary so low?"
+p Salaries are always a sensitive topic and not always fair. Still there are several reasons why the salaries of fresh bootcamp grads can be so different. Here are some of them:
+ul.p-3.list-group.list-group-flush
+  li.list-group-item <b>Previous work experience</b>: Having any kind of work experience makes you a more valuable candidate as companies don't need to form you in basic work ethics. This increases if the experience was at a big and renowned company, or if it was related to the job you are currently pursuing.
+  li.list-group-item <b>Well handled interview</b>: If you give a good first impression during your interview (well handled technical assignment, open and outgoing attitute with the CEO...) companies will be more prone to offering you a higher salary.
+  li.list-group-item <b>Other valuable skills</b>: A candidate can have some non-tech skills (language proficiency, presentation skills, leadership...) that the company deems important enough to pay a premium for them.
+  li.list-group-item <b>Different work conditions</b>: A salary may be higher than average because it comes with more work hours per week (or included overtime). If calculated on a per-hour basis, the actual salary would end up being lower.
+  li.list-group-item <b>Time constraints</b>: Sometimes you don't have the luxury to wait for a good offer and need to grab the first thing that comes through to pay your bills. This generally leads to lower salaries.
+  li.list-group-item <b>Negotiation</b>: Some candidates might have gone and asked for a higher salary, either before starting the interview process or at the last step.
+  li.list-group-item <b>Budget</b>: At the end of the day, most of the points above boil down to what the company is willing to pay, and some companies just can't or don't want to pay more.
+p I'm currently working on some tools to help you with salary negotiation. If you are interested <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#negotiationModal">sign up to be notified</button> when it releases.
+p In any case don't stress about your salary too much, because <b>YOUR FIRST SALARY DOESN'T DEFINE YOUR CARREER</b>. My first salary was in the bottom 10% but within a year I managed to upgrade to a much more comfortable one.
+p My recommendation to you is to get your foot in the door. Once you are in the industry gaining experience, you can easily transition to a better job if you so wish.
+= link_to 'Back to salaries', root_path
+
+// modal
+.modal.fade id="negotiationModal" tabindex="-1" aria-labelledby="negotiationModalLabel" aria-hidden="true"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5.modal-title id="negotiationModalLabel" Be notified when salary negotiation tool releases
+        button.btn-close type="button" data-bs-dismiss="modal" aria-label="Close"
+      .modal-body
+        form action="https://formspree.io/f/xbjwkbre" method="POST"
+          label Your email:
+          input.m-3 type="email" name="email"
+          button.m-3.btn.btn-primary.text-white type="submit" Send

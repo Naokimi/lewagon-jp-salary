@@ -12,6 +12,8 @@ class PagesController < ApplicationController
     math_variables
   end
 
+  def faq; end
+
   private
 
   def filtered_salaries
