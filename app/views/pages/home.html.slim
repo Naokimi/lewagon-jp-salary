@@ -38,4 +38,4 @@ h3.mt-4 Salaries
           td = salary.overtime.nil? ? nil : link_to("#{salary.overtime} h/week", root_path(query: { overtime: salary.overtime }))
 - else
   .text-center
-    = link_to 'Login to see detailed entries', new_user_session_path, class: 'btn btn-secondary'
+    = link_to 'Login to see detailed entries (only for LW Japan Alumni)', new_user_session_path, class: 'btn btn-secondary'

@@ -6,7 +6,7 @@ h1.my-3 Add a new salary
     .col-12.col-md = f.input :job_title, collection: Salary::ROLES, include_blank: false, selected: Salary::ROLES.sample
   .mt-3
     h3 Help us make the analysis more precise
-    p These replies are optional, but they help give more context to a number
+    p These replies are optional, but they help give more context
   .row
     .col-12.col-md = f.input :remote, label: 'Remote work'
     .col-12.col-md = f.input :flex, label: 'Flex time'
