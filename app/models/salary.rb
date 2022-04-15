@@ -17,7 +17,8 @@
 class Salary < ApplicationRecord
   ROLES = [
     'Backend Developer', 'Frontend Developer', 'Fullstack Developer', 'Product Manager',
-    'Project Manager', 'QA Engineer', 'UI/UX Designer'
+    'Project Manager', 'QA Engineer', 'UI/UX Designer',
+    'Data Scientist', 'Data Analyst', 'AI Engineer'
   ].freeze
 
   enum remote: { none_or_limited_remote: 0, partial_remote: 1, fully_remote: 2 }
