@@ -18,6 +18,7 @@ class Salary < ApplicationRecord
   ROLES = [
     'Backend Developer', 'Frontend Developer', 'Fullstack Developer', 'Product Manager',
     'Project Manager', 'QA Engineer', 'UI/UX Designer',
+    'Support Engineer', 'Tech consultant',
     'Data Scientist', 'Data Analyst', 'AI Engineer'
   ].freeze
 
