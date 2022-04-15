@@ -10,6 +10,7 @@ class PagesController < ApplicationController
 
     @salaries = @salaries.order(year: :desc)
     math_variables
+    respondent_variables
   end
 
   def faq; end
@@ -29,6 +30,12 @@ class PagesController < ApplicationController
     mid = (amounts.length - 1) / 2.0
     @median = (amounts[mid.floor] + amounts[mid.ceil]) / 2
     @average = amounts.sum(0) / amounts.length
+  end
+
+  def respondent_variables
+    @respondents = Salary.count
+    @max_respondents = ENV['LW_JAPAN_USERS'].split(',').length
+    @respondent_rate = @respondents/@max_respondents
   end
 
   def query_params

@@ -8,6 +8,7 @@ p If you are an alumni we encourage you to anonymously #{link_to 'add your first
 p = link_to 'Questions about the salaries?', faq_path
 
 h3.mt-4 Salaries
+p.card-subtitle.text-muted.mb-2 Data from #{@respondents} / #{@max_respondents} (#{@respondent_rate}%) LW Japan Alumni
 - if params[:query]
   = link_to 'Clear query', root_path
 .d-flex.justify-content-between
