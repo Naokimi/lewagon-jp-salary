@@ -19,7 +19,7 @@ class PagesController < ApplicationController
 
   def filtered_salaries
     # turn query parameters into SQL string for querying
-    query = query_params.to_h[:query].map { |k, v| "#{k} = #{v}" }.join(' AND ')
+    query = query_params.to_h[:query].map { |k, v| "#{k} = '#{v}'" }.join(' AND ')
     Salary.where(query)
   end
 
