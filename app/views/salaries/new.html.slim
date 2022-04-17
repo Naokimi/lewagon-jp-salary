@@ -3,7 +3,7 @@ h1.my-3 Add a new salary
   .row
     .col-12.col-md = f.input :amount, label: 'Yearly salary', hint: 'Including bonuses and other monetizable benefits (conference budget, education budget, etc.)'
     .col-12.col-md = f.input :year, label: 'Graduation year'
-    .col-12.col-md = f.input :job_title, collection: Salary::ROLES, include_blank: false, selected: Salary::ROLES.sample
+    .col-12.col-md = f.input :job_title, collection: Salary.all_roles, include_blank: false, selected: Salary.all_roles.sample
   .mt-3
     h3 Help us make the analysis more precise
     p These replies are optional, but they help give more context
