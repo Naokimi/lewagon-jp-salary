@@ -34,7 +34,7 @@ class PagesController < ApplicationController
 
   def respondent_variables
     @respondents = Salary.count
-    @max_respondents = ENV['LW_JAPAN_USERS'].split(',').length
+    @max_respondents = ENV['LW_JAPAN_USERS'] ? ENV['LW_JAPAN_USERS'].split(',').length : 0
   end
 
   def query_params
