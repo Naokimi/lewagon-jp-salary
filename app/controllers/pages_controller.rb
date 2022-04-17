@@ -33,7 +33,7 @@ class PagesController < ApplicationController
   end
 
   def respondent_variables
-    @respondents = User.count
+    @max_entries = Salary.count
     @max_respondents = ENV['LW_JAPAN_USERS'] ? ENV['LW_JAPAN_USERS'].split(',').length : 0
   end
 
