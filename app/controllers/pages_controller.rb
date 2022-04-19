@@ -18,8 +18,12 @@ class PagesController < ApplicationController
   private
 
   def filtered_salaries
-    # turn query parameters into SQL string for querying
-    query = query_params.to_h[:query].map { |k, v| "#{k} = '#{v}'" }.join(' AND ')
+    query = if query_params.to_h[:query][:grouped_titles]
+              { job_title: query_params.to_h[:query][:grouped_titles] }
+            else
+              # turn query parameters into SQL string for querying
+              query_params.to_h[:query].map { |k, v| "#{k} = '#{v}'" }.join(' AND ')
+            end
     Salary.where(query)
   end
 
@@ -38,6 +42,6 @@ class PagesController < ApplicationController
   end
 
   def query_params
-    params.permit(query: %i[year job_title remote flex equity workweek overtime])
+    params.permit(query: [:year, :job_title, :remote, :flex, :equity, :workweek, :overtime, grouped_titles: []])
   end
 end

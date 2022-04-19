@@ -8,12 +8,17 @@ p If you are an alumni we encourage you to anonymously #{link_to 'add your first
 p = link_to 'Questions about the salaries?', faq_path
 
 h3.mt-4 Salaries
-p.card-subtitle.text-muted.mb-2 #{@max_entries} entries out of a max of #{@max_respondents} LW Japan Alumni.
+p.card-subtitle.text-muted.mb-2 #{@max_entries} entries out of a max of #{@max_respondents} LW Japan Alumni. Displayed data from #{@salaries.length} entries.
 - if params[:query]
   = link_to 'Clear query', root_path
 .d-flex.justify-content-between
   p.salary-card Median salary: ¥#{number_with_delimiter(@median)}
   p.salary-card Average salary: ¥#{number_with_delimiter(@average)}
+h5 Filter salaries
+= link_to 'Web Dev roles', root_path(query: { grouped_titles: Salary.web_dev_roles }), class: 'btn btn-outline-primary m-2'
+= link_to 'Data Science roles', root_path(query: { grouped_titles: Salary.data_science_roles }), class: 'btn btn-outline-primary m-2'
+= link_to 'Developer roles', root_path(query: { grouped_titles: Salary.developer_roles }), class: 'btn btn-outline-primary m-2'
+= link_to 'Non-developer roles', root_path(query: { grouped_titles: Salary.non_developer_roles }), class: 'btn btn-outline-primary m-2'
 - if current_user
   table
     thead
